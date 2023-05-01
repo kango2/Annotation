@@ -1,6 +1,6 @@
 # Genome annotation pipeline walkthrough
 This pipeline trains and runs Augustus gene prediction for your new eukaryotic species.\
-The codes are intended to be running on NCI Gadi, it will need adjusting if running on other servers.\
+The codes are optimised to run on NCI Gadi, it will need adjusting if running on other servers.\
 The entire pipeline is split into 5 parts, each as a PBS script.\
 NOTE that all paths needs to be absolute path when setting up the shell variables below.
 ### Required inputs:
@@ -49,3 +49,10 @@ qsub -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome}
 **Step 6.** Check log for further instruction
 - A log file will be generated in `${workingdir}annotation.log` this file reports some basic information as the pipeline progresses, it will also automatically generate the `qsub` commands for you to execute and start the next script.
 - As a general rule, lines beginning with `[!]` in the log file will require attention, these are the instruction and commands needed run the next part.
+## Part 5 of pipeline
+There are two options to choose from when running Part 5 (5A or 5B). Instructions for both options will be generated in the log file, run only one of them.\
+\
+Option A will stitch together neighbouring genes (no intervening genes) based on their overlapping with cDNA alignments to the genome (cDNA from a closely related species), then do a similarity blast search to uniprot for gene identification
+- Two additional shell variables will be needed to run option A, instructions on setting them up will be in the log file. They are `${Related_species}` and `${maxintron}`
+- If the stitched gene contains an inferred intron with length longer than `${maxintron}` then it will not stitch them together, it will instead use the original source genes in the final annotation. Setting it to `0` will stitch together all candidates regardless of the length of their inferred introns. I recommend setting this to a reasonable length, maybe `200000`
+Option B will just do a similarity blast search to uniprot for gene identification
