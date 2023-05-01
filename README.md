@@ -1,4 +1,4 @@
-# Genome annotation pipeline
+# Genome annotation pipeline walkthrough
 This pipeline trains and runs Augustus gene prediction for a new eukaryotic species.\
 The codes are intended to be running on NCI Gadi, it will need adjusting if running on other servers.
 ### Required inputs:
