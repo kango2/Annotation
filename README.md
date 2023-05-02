@@ -17,7 +17,7 @@ The entire pipeline is split into 5 parts, each as a PBS script.\
 export workingdir=/path/to/working_directory
 mkdir ${workingdir}
 ```
-**Step 2.** Download the latest Uniprot database fasta file and the directory sturcture into your working directory
+**Step 2.** Download the latest Uniprot database fasta file and the directory structure into your working directory
 ```
 cd ${workingdir}
 wget https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
