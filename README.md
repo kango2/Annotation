@@ -48,7 +48,7 @@ cd ${workingdir}/Scripts/workflow
 qsub -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part1_trainingset.sh
 ```
 **Step 6.** Check log for further instruction
-- A log file will be generated in `${workingdir}annotation.log` this file reports some basic information as the pipeline progresses, it will also automatically generate the `qsub` commands for you to execute and start the next script.
+- A log file will be generated in `${workingdir}/annotation.log` this file reports some basic information as the pipeline progresses, it will also automatically generate the `qsub` commands for you to execute and start the next script.
 - As a general rule, lines beginning with `[!]` in the log file will require attention, these are the instruction and commands needed run the next part.
 ## Part 5 of pipeline
 There are two options to choose from when running Part 5 (5A or 5B). Instructions for both options will be generated in the log file, **choose and run only one**.\
