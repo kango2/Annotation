@@ -55,6 +55,6 @@ There are two options to choose from when running Part 5 (5A or 5B). Instruction
 \
 **Option A** will stitch together neighbouring genes (no intervening genes) based on their overlapping with cDNA alignments to the genome (cDNA from a closely related species), then do a similarity blast search to uniprot for gene identification
 - Two additional shell variables will be needed to run option A, instructions on setting them up will be in the log file. They are `${Related_species}` and `${maxintron}`
-- If the stitched gene contains an inferred intron with length longer than `${maxintron}` then it will not stitch them together, it will instead use the original source genes in the final annotation. Setting it to `0` will stitch together all candidates regardless of the length of their inferred introns. I recommend setting this to a reasonable length, maybe `200000`.
+- If the stitched gene contains an inferred intron with length longer than `${maxintron}` then it will not stitch them together, it will instead use the original source genes in the final annotation. Setting it to `0` will stitch together all candidates regardless of the inferred intron lengths. I recommend setting this to a reasonable length, maybe `200000`.
 <!-- end of the list -->
 **Option B** will just do a similarity blast search to uniprot for gene identification
