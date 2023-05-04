@@ -58,3 +58,5 @@ There are two options to choose from when running Part 5 (5A or 5B). Instruction
 - If the stitched gene contains an inferred intron with length longer than `${maxintron}` then it will not stitch them together, it will instead use the original source genes in the final annotation. Setting it to `0` will stitch together all candidates regardless of the inferred intron lengths. I recommend setting this to a reasonable length, maybe `200000`.
 <!-- end of the list -->
 **Option B** will just do a similarity blast search to uniprot for gene identification
+## Annotation after pipeline
+**Currently in development**, I will have a script available later on for annotating different genomes of the same species without having to train augustus again. This script will simply align your trinity fasta to the new genome using exonerate to generate hints, then run Augustus gene prediction using the new hints and the already trained species-specific parameters.
