@@ -23,7 +23,7 @@ cd ${workingdir}
 wget https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
 gunzip uniprot_sprot.fasta.gz
 
-wget https://github.com/kango2/Annotation/blob/main/Augustus_workingdir.tar.gz
+wget https://github.com/kango2/Annotation/raw/main/Augustus_workingdir.tar.gz
 tar -xzvf Augustus_workingdir.tar.gz --strip-components=1
 ```
 **Step 3.** Setting up required shell variables
