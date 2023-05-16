@@ -58,5 +58,49 @@ There are two options to choose from when running Part 5 (5A or 5B). Instruction
 - If the stitched gene contains an inferred intron with length longer than `${maxintron}` then it will not stitch them together, it will instead use the original source genes in the final annotation. Setting it to `0` will stitch together all candidates regardless of the inferred intron lengths. I recommend setting this to a reasonable length, maybe `200000`.
 <!-- end of the list -->
 **Option B** will just do a similarity blast search to uniprot for gene identification
-## Annotation after pipeline
-**Currently in development**, I will have a script available later on for annotating different genomes of the same species without having to train augustus again. This script will simply align your trinity fasta to the new genome using exonerate to generate hints, then run Augustus gene prediction using the new hints and the already trained species-specific parameters.
+
+# Annotating new genome for same species using existing training parameters
+**Step 1.**  Create a NEW working directory
+```
+export NEWworkingdir=/path/to/new_working_directory
+mkdir ${NEWworkingdir}
+```
+**Step 2.** Download script
+```
+cd ${NEWworkingdir}
+wget https://github.com/kango2/Annotation/raw/main/OptionA_Stitch.sh
+wget https://github.com/kango2/Annotation/raw/main/OptionB_NoStitch.sh
+```
+**Step 3.** Setting up required shell variables, variable 2-5 should be exactly same as running it the first time above
+- use underscores instead of space characters for the name of your species.
+- use `echo ${PROJECT}` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
+```
+export NEWtargetgenome=/path/to/your/new_softmasked_genome.fa
+export workingdir=/path/to/working_directory
+export trinity_out=/path/to/your/trinity.fa
+export species=Species_name
+export project_code=xl04
+```
+- If running OptionA_Stitch.sh (Similar to Part5A), set up these two additional variables, see **Part 5 of pipeline** above for explanation.
+```
+export Related_species=/path/to/related_species_cDNA.fa
+export maxintron=0
+```
+**Step 4.** Generate Exonerate hints
+```
+mkdir ${NEWworkingdir}/Exonerate
+for i in ${trinity_out}; do inputfasta=$(realpath $i); for c in 1 241 481; do qsub -P ${project_code} -o ${NEWworkingdir} -v querychunktotal=720,querychunkstart=$c,querychunkend=$((c+239)),outputdir=${NEWworkingdir}/Exonerate,inputfasta=${inputfasta},targetgenome=${NEWtargetgenome} ${workingdir}/Scripts/runexonerate.sh; done; done
+```
+**Step 5.** Run OptionA_Stitch.sh or OptionB_NoStitch.sh
+
+Make sure to wait until the 3 exonerate jobs finish before running this step
+- Option A
+```
+cd ${NEWworkingdir}
+qsub -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code},Related_species=${Related_species},maxintron=${maxintron} OptionA_Stitched.sh
+```
+- Option B
+```
+cd ${NEWworkingdir}
+qsub -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} OptionB_NoStitch.sh
+```
