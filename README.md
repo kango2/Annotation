@@ -97,7 +97,7 @@ Make sure to wait until the 3 exonerate jobs finish before running this step
 - Option A
 ```
 cd ${NEWworkingdir}
-qsub -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code},Related_species=${Related_species},maxintron=${maxintron} OptionA_Stitched.sh
+qsub -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code},Related_species=${Related_species},maxintron=${maxintron} OptionA_Stitch.sh
 ```
 - Option B
 ```
