@@ -73,7 +73,7 @@ wget https://github.com/kango2/Annotation/raw/main/OptionB_NoStitch.sh
 ```
 **Step 3.** Setting up required shell variables, variable 2-5 should be exactly same as running it the first time above
 - use underscores instead of space characters for the name of your species.
-- use `echo ${PROJECT}` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
+- use `printenv PROJECT` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
 ```
 export NEWtargetgenome=/path/to/your/new_softmasked_genome.fa
 export workingdir=/path/to/working_directory
