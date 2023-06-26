@@ -36,6 +36,7 @@ export species=Species_name
 export project_code=xl04
 ```
 **Step 4 (Optional).** Add email notification for your PBS jobs
+- Replace "your email" in second command with your actual email.
 ```
 cd ${workingdir}/Scripts/workflow
 export email="your email"
