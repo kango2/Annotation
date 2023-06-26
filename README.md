@@ -28,7 +28,7 @@ tar -xzvf Augustus_workingdir.tar.gz --strip-components=1
 ```
 **Step 3.** Setting up required shell variables
 - use underscores instead of space characters for the name of your species.
-- use `echo ${PROJECT}` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
+- use `printenv PROJECT` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
 ```
 export targetgenome=/path/to/your/softmasked_genome.fa
 export trinity_out=/path/to/your/trinity.fa
