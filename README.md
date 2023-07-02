@@ -73,6 +73,18 @@ There are two options to choose from when running Part 5 (5A or 5B). Instruction
 <!-- end of the list -->
 **Option B** will just do a similarity blast search to uniprot for gene identification
 
+# Annotating new genome for same species using existing training parameters (NEW)
+Similar to the **NEW** section above
+- Download the script and make it executable
+```
+wget https://github.com/kango2/Annotation/raw/main/PipelineSettings_StartPipeline2.sh
+chmod u+x PipelineSettings_StartPipeline2.sh
+```
+- Edit first section in any text editor to set up your variables (all lines starting with "export")
+- Run the script
+```
+./PipelineSettings_StartPipeline2.sh
+```
 # Annotating new genome for same species using existing training parameters
 **Step 1.**  Create a NEW working directory
 ```
