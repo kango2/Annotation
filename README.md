@@ -11,6 +11,18 @@ The entire pipeline is split into 5 parts, each as a PBS script.\
 - Gene annotation (gff3)
 - Predicted peptides (fasta)
 - Optimised Augustus species-specific parameters for your species
+## Running the pipeline (NEW)
+Added a new script to start the pipeline automatically, and submits all five jobs in the pipeline at once with starting dependencies. (Basically equivalent to running the entire next section manually, and does all the job submitting automatically for you).
+- Download the script and make it executable
+```
+wget https://github.com/kango2/Annotation/raw/main/PipelineSettings_StartPipeline.sh
+chmod u+x PipelineSettings_StartPipeline.sh
+```
+- Edit first section in any text editor to set up your variables (all lines starting with "export")
+- Run the script
+```
+./PipelineSettings_StartPipeline.sh
+```
 ## Running the pipeline
 **Step 1.**  Create a working directory
 ```
