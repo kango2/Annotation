@@ -11,7 +11,7 @@ The entire pipeline is split into 5 parts, each as a PBS script.\
 - Gene annotation (gff3)
 - Predicted peptides (fasta)
 - Optimised Augustus species-specific parameters for your species
-## Running the pipeline (NEW)
+## Running the pipeline (AUTO)
 Added a new script to start the pipeline automatically, and submits all five jobs in the pipeline at once with starting dependencies. (Basically equivalent to running the entire next section manually, and does all the job submitting automatically for you).
 - Download the script and make it executable
 ```
@@ -73,8 +73,8 @@ There are two options to choose from when running Part 5 (5A or 5B). Instruction
 <!-- end of the list -->
 **Option B** will just do a similarity blast search to uniprot for gene identification
 
-# Annotating new genome for same species using existing training parameters (NEW)
-Similar to the **NEW** section above
+# Annotating new genome for same species using existing training parameters (AUTO)
+Similar to the **AUTO** section above but for running with existing training parameters.
 - Download the script and make it executable
 ```
 wget https://github.com/kango2/Annotation/raw/main/PipelineSettings_StartPipeline2.sh
