@@ -12,7 +12,7 @@ The entire pipeline is split into 5 parts, each as a PBS script.\
 - Predicted peptides (fasta)
 - Optimised Augustus species-specific parameters for your species
 ## Running the pipeline (AUTO)
-Added a new script to start the pipeline automatically, and submits all five jobs in the pipeline at once with starting dependencies. (Basically equivalent to running the entire next section manually, and does all the job submitting automatically for you).
+Added a new script to start the pipeline automatically, and submits all five jobs in the pipeline at once with starting dependencies. (Basically equivalent to running the entire next section but easier and simpler, and does all the job submitting automatically for you).
 - Download the script and make it executable
 ```
 wget https://github.com/kango2/Annotation/raw/main/PipelineSettings_StartPipeline.sh
