@@ -1,5 +1,5 @@
 # Genome annotation pipeline walkthrough
-This pipeline trains and runs Augustus gene prediction for your new eukaryotic species.\
+This pipeline trains and runs Augustus gene prediction for your new eukaryotic species using TRINITY de novo transcriptomic assembly.\
 The codes are optimised to run on **NCI Gadi**, it will need adjusting if running on other servers.\
 The entire pipeline is split into 5 parts, each as a PBS script.\
 **NOTE** that all paths needs to be **absolute path** when setting up the shell variables below.
