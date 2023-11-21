@@ -54,9 +54,9 @@ else
     echo -e "Unexpected value for Part5, please select either A or B. Stopping script."
     exit 1
 fi
-DEPEND_FOR_3=$(qsub -W depend=on:1,beforeok=${DEPEND_FOR_4} -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part4_RunningAugustus.sh)
-DEPEND_FOR_2=$(qsub -W depend=on:1,beforeok=${DEPEND_FOR_3} -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part3_TrainingAugustus.sh)
-DEPEND_FOR_1=$(qsub -W depend=on:7,beforeok=${DEPEND_for_2} -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part2_trainingset.sh)
+DEPEND_FOR_3=$(qsub -W depend=on:1,beforeok:${DEPEND_FOR_4} -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part4_RunningAugustus.sh)
+DEPEND_FOR_2=$(qsub -W depend=on:1,beforeok:${DEPEND_FOR_3} -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part3_TrainingAugustus.sh)
+DEPEND_FOR_1=$(qsub -W depend=on:7,beforeok:${DEPEND_FOR_2} -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part2_trainingset.sh)
 qsub -W depend=beforeok:${DEPEND_FOR_1} -P ${project_code} -v DEPEND_FOR_1=${DEPEND_FOR_1},workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part1_trainingset.sh
 
 echo -e "Done, pipeline successfully started"
