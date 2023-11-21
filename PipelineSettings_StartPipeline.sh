@@ -44,10 +44,10 @@ fi
 
 cd ${workingdir}/Scripts/workflow
 
-if [ "Part5" = "A" ]; then
+if [ "$Part5" = "A" ]; then
     echo -e "Option A selected for Part 5, now submitting jobs to start pipeline..."
     DEPEND_FOR_4=$(qsub -W depend=on:1 -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code},Related_species=${Related_species},maxintron=${maxintron} Part5A_StitchThenIdentify.sh)
-elif [ "Part5" = "B" ]; then
+elif [ "$Part5" = "B" ]; then
     echo -e "Option B selected for Part 5, now submitting jobs to start pipeline..."
     DEPEND_FOR_4=$(qsub -W depend=on:1 -P ${project_code} -v workingdir=${workingdir},targetgenome=${targetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} Part5B_Identify.sh)
 else
