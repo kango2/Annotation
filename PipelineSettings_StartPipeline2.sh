@@ -48,7 +48,7 @@ if [ "$Option" = "A" ]; then
     export DEPEND_FOR_EXONERATE=$(qsub -W depend=on:3 -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code},Related_species=${Related_species},maxintron=${maxintron} OptionA_Stitch.sh)
 elif [ "$Option" = "B" ]; then
     echo -e "Option B selected, now submitting jobs to start pipeline..."
-    export DEPEND_FOR_EXONERATE=$(qsub -W depend=on:3 -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} OptionB_NoStitch.s)
+    export DEPEND_FOR_EXONERATE=$(qsub -W depend=on:3 -P ${project_code} -v workingdir=${workingdir},NEWworkingdir=${NEWworkingdir},NEWtargetgenome=${NEWtargetgenome},trinity_out=${trinity_out},species=${species},project_code=${project_code} OptionB_NoStitch.sh)
 else
     echo -e "Unexpected value for Option, please select either A or B. Stopping script."
     exit 1
