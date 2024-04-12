@@ -11,6 +11,12 @@ The entire pipeline is split into 5 parts, each as a PBS script.\
 - Gene annotation (gff3)
 - Predicted peptides (fasta)
 - Optimised Augustus species-specific parameters for your species
+### Additional requirements
+- Your trinity assembly needs to be in fasta format with exactly the ".fasta" extension, it cannot be ".fa"
+- If it's in .fa suffix simply change it to .fasta with
+```
+mv trinity.fa trinity.fasta
+```
 ### Pipeline overview
 ![annotation](https://github.com/kango2/Annotation/assets/105471690/0a08334e-4424-48ce-9d16-d9325764f037)
 ## Running the pipeline (AUTO)
