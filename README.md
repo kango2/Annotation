@@ -44,8 +44,8 @@ tar -xzvf Augustus_workingdir.tar.gz --strip-components=1
 - use underscores instead of space characters for the name of your species.
 - use `printenv PROJECT` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
 ```
-export targetgenome=/path/to/your/softmasked_genome.fa
-export trinity_out=/path/to/your/trinity.fa
+export targetgenome=/path/to/your/softmasked_genome.fasta
+export trinity_out=/path/to/your/trinity.fasta
 export species=Species_name
 export project_code=xl04
 ```
@@ -103,15 +103,15 @@ wget https://github.com/kango2/Annotation/raw/main/OptionB_NoStitch.sh
 - use underscores instead of space characters for the name of your species.
 - use `printenv PROJECT` if you are unsure of what your project code is, this will be needed for submitting PBS jobs.
 ```
-export NEWtargetgenome=/path/to/your/new_softmasked_genome.fa
+export NEWtargetgenome=/path/to/your/new_softmasked_genome.fasta
 export workingdir=/path/to/working_directory
-export trinity_out=/path/to/your/trinity.fa
+export trinity_out=/path/to/your/trinity.fasta
 export species=Species_name
 export project_code=xl04
 ```
 - If running OptionA_Stitch.sh (Similar to Part5A), set up these two additional variables, see **Part 5 of pipeline** above for explanation.
 ```
-export Related_species=/path/to/related_species_cDNA.fa
+export Related_species=/path/to/related_species_cDNA.fasta
 export maxintron=0
 ```
 **Step 4.** Generate Exonerate hints
